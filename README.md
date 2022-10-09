@@ -9,3 +9,6 @@ Simple billing\shop management application made by [TkInter](https://docs.python
 This application will store your goods in a json format in [data.json](./data.json) by default, and you can add another one (custom one) with the name you wish.  
 Then the application takes that data and use it to manage your products and prices.
 
+---
+
+<h6 align=center><a href="./LICENSE">GNU General Public License</a></h6>
