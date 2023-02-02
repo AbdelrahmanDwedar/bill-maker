@@ -20,15 +20,15 @@ def create_file():
         di = {}
         global text
         text = file_name.get()
-        
+
         with open("%s.json" %text, "w") as write:
             json.dump(di, write)
-    
+
     #* sets a json file to use
     def set_file():
         global text
         text = file_name.get()
-        
+
         open("%s.json" %text)
 
     cfile = Button(wfile,text="Creat your own file", command=add_file)
@@ -36,26 +36,26 @@ def create_file():
 
     sfile = Button(wfile, text="Set this as the working file", command=set_file)
     sfile.place(x=15,y=130)
-    
-#! adds a value to the json file 
+
+#! adds a value to the json file
 def add_window():
     add_window= Toplevel(window)
     add_window.title("Add Goods")
     add_window.geometry("700x300+0+0")
-    
+
     #* Adds a list to the json file
     def add():
         dic = {}
 
         #? If you have made a custom json file
         try:
-            json_val = json.load(open("%s.json" %text))        
+            json_val = json.load(open("%s.json" %text))
             dic = json_val
             dic[key.get()] = [pro.get(),price.get(),num.get()]
-        
+
             with open("%s.json" %text, "w" ) as write:
                 json.dump(dic, write)
-        
+
         #? If you didn't set a custom file, uses 'data.json' as the main json file
         except NameError:
             json_val = json.load(open("data.json"))
@@ -67,30 +67,30 @@ def add_window():
 
         lab = Label(add_window,text=dic,width=40)
         lab.place(x=15 , y = 100)
-    
+
     key_lab = Label(add_window,text="Enter code")
     global key
     key= Entry(add_window,width=23)
     key.place(x=15,y=40)
     key_lab.place(x=15,y=20)
-    
+
     pro_lab = Label(add_window,text="Name of product")
     global pro
     pro= Entry(add_window,width=23)
     pro.place(x=170,y=40)
     pro_lab.place(x=170,y=20)
-    
+
     price_lab = Label(add_window,text="Enter price")
     global price
     price= Entry(add_window,width=23)
     price.place(x=330,y=40)
     price_lab.place(x=330,y=20)
-    
+
     num_lab = Label(add_window,text="Enter Quantity")
     num = Entry(add_window,width=23)
     num.place(x=480,y=40)
     num_lab.place(x=480,y=20)
-    
+
     btn5=Button(add_window,text='add',command =add)
     btn5.place(x=15 , y = 60)
 
@@ -98,42 +98,42 @@ def add_window():
 def cal_window():
     cal_window= Toplevel(window)
     cal_window.title("Buying")
-    cal_window.geometry("700x300+0+350")  
+    cal_window.geometry("700x300+0+350")
     key_var = StringVar()
     pro_var = StringVar()
-    price_var = StringVar() 
+    price_var = StringVar()
     num_var = IntVar()
-    
+
     key_lab = Label(cal_window,text="Enter code")
     key = Entry(cal_window,width=23,textvariable = key_var)
     key.place(x=15,y=40)
     key_lab.place(x=15,y=20)
-    
+
     pro_lab = Label(cal_window,text="Name of product")
     pro= Entry(cal_window,width=23,textvariable =pro_var)
     pro.place(x=170,y=40)
     pro_lab.place(x=170,y=20)
-    
+
     price_lab = Label(cal_window,text= "price")
     price= Entry(cal_window,width=23,textvariable =price_var)
     price.place(x=330,y=40)
     price_lab.place(x=330,y=20)
-    
+
     num_lab = Label(cal_window,text="Enter Quantity")
     num= Entry(cal_window,width=23,textvariable =num_var)
     num.place(x=480,y=40)
     num_lab.place(x=480,y=20)
-    
+
     Lb1 = Listbox(cal_window)
     Lb1.place(x=15 , y = 100)
     Lb2 = Listbox(cal_window)
     Lb2.place(x=100 , y = 100)
-   
+
     def search():
         dic = {}
 
         #? If you have made a custom json file
-        try:    
+        try:
             json_val = json.load(open("%s.json" %text))
             dic = json_val
             k  = key_var.get()
@@ -203,13 +203,13 @@ def cal_window():
         to = count + 1
         Lb1.insert(to, "Totally")
         Lb2.insert(to, y)
-        
+
     btn5=Button(cal_window,text='search',command=search)
     btn5.place(x=15 , y = 60)
-    
+
     btn6=Button(cal_window,text='add',command=cal)
     btn6.place(x=100 , y = 60)
-    
+
     btn7=Button(cal_window,text='total',command=total)
     btn7.place(x=150 , y = 60)
 
