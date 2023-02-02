@@ -223,4 +223,5 @@ btn2.place(x=110,y=70)
 btn3 = Button(window, text="Create custom file", width= 15, command=create_file)
 btn3.place(x=110, y=120)
 
-window.mainloop()
+if __name__ == "__main__":
+	window.mainloop()
