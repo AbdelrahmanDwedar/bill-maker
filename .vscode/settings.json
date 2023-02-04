@@ -1,0 +1,18 @@
+{
+	"python.testing.unittestArgs": [
+		"-v",
+		"-s",
+		"./",
+		"-p",
+		"*_test.py"
+	],
+	"python.testing.pytestEnabled": false,
+	"python.testing.unittestEnabled": true,
+	"black-formatter.importStrategy": "useBundled",
+	"editor.defaultFormatter": "ms-python.black-formatter",
+	"editor.formatOnSave": true,
+	"[json]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+	"python.formatting.provider": "black"
+}
