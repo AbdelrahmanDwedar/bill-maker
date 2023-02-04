@@ -14,5 +14,6 @@
 	"[json]": {
 		"editor.defaultFormatter": "vscode.json-language-features"
 	},
-	"python.formatting.provider": "black"
+	"python.formatting.provider": "black",
+	"python.analysis.typeCheckingMode": "basic"
 }
